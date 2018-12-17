@@ -1,0 +1,20 @@
+<h1>家計簿 index</h1>
+<p>Find me in app/views/accounts/index.html.erb</p>
+
+<div class="account-form">
+  <%= form_tag request.url do %>
+    <table>
+      <tr>
+        <td>日付</td>
+        <td>カテゴリー</td>
+        <td>金額</td>
+      </tr>
+      <tr>
+        <td><input type="text" id="text1" name="date"></td>
+        <td><input type="text" id="test2" name="category"></td>
+        <td><input type="text" id="test3" name="money"></td>
+      </tr>
+    </table>
+    <input type="submit" value="登録">
+  <% end %>
+</div>
