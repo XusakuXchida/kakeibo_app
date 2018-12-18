@@ -3,7 +3,7 @@
 
 <div class="account-form">
   <%= form_tag request.url do %>
-    <table>
+    <table class="form_table">
       <tr>
         <td>日付</td>
         <td>カテゴリー</td>
@@ -23,8 +23,23 @@
 ===================================
 <br>
 
-<div id="calendar">
+過去のお買い物データ<br>
+<table class="data_table">
+  <tr>
+    <td>日付</td>
+    <td>カテゴリー</td>
+    <td>金額</td>
+  </tr>
+  <% @accounts.each do |account| %>
+    <tr>
+      <td><%= account.date %></td>
+      <td><%= account.category %></td>
+      <td><%= account.money %></td>
+    </tr>
+  <% end %>
+</table>
+<!-- <div id="calendar">
   <%= month_calendar do |date| %>
     <%= date %>
   <% end %>
-</div>
+</div> -->
