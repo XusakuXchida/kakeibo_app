@@ -9,7 +9,10 @@ class AccountsController < ApplicationController
     account.date = params[:date]
     account.category = params[:category]
     account.money = params[:money]
-    account.save
-    redirect_to action: "index"
+    if account.save
+      redirect_to action: "index"
+    else
+      redirect_to "/home"
+    end
   end
 end
