@@ -32,9 +32,9 @@
 ===================================
 <br>
 
-過去のお買い物データ<br>
+<h4>過去のお買い物データ</h4><br>
 <table class="data_table">
-  <tr>
+  <tr class="columns">
     <td>日付</td>
     <td>カテゴリー</td>
     <td>目的</td>
@@ -49,10 +49,10 @@
       <% @sum_money += account.money %>
     </tr>
   <% end %>
-  <tr>
+  <tr id="sum_tr">
     <td></td>
     <td></td>
-    <td></td>
+    <td><i id="sum_td">合計 :</i></td>
     <td><%= @sum_money %></td>
   </tr>
 </table>
