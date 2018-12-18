@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.account_index {
+  background-color: whitesmoke ;
+}
+
 .form_table td{
   width: 130px;
 }
@@ -11,6 +15,7 @@
 }
 
 .columns {
+  background-color: lightgray ;
   font-weight: bold;
   border-bottom:1px solid #ccc;
 }
@@ -22,4 +27,8 @@
 #sum_td {
   float: right;
   padding-right: 15px;
+}
+
+#sum_tr {
+  font-weight: bold;
 }
