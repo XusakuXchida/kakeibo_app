@@ -1,5 +1,5 @@
 <h1>家計簿 index</h1>
-<p>Find me in app/views/accounts/index.html.erb</p>
+<p>今日の日付：<%= @today.to_s.gsub(/-/,'/') %></p>
 
 <div class="account-form">
   <%= form_tag request.url do %>
@@ -7,12 +7,14 @@
       <tr>
         <td>日付</td>
         <td>カテゴリー</td>
+        <td>目的</td>
         <td>金額</td>
       </tr>
       <tr>
         <td><input type="text" id="text1" name="date"></td>
+        <td><input type="text" id="text2" name="category"></td>
         <td>
-          <select name="category">
+          <select name="purpose">
             <option value="">選択して下さい</option>
             <option>生活費</option>
             <option>趣味・娯楽</option>
@@ -35,17 +37,20 @@
   <tr>
     <td>日付</td>
     <td>カテゴリー</td>
+    <td>目的</td>
     <td>金額</td>
   </tr>
   <% @accounts.each do |account| %>
     <tr>
-      <td><%= account.date %></td>
+      <td><%= account.date.to_s.gsub(/-/,'/')  %></td>
       <td><%= account.category %></td>
+      <td><%= account.purpose %></td>
       <td><%= account.money %></td>
       <% @sum_money += account.money %>
     </tr>
   <% end %>
   <tr>
+    <td></td>
     <td></td>
     <td></td>
     <td><%= @sum_money %></td>
