@@ -35,8 +35,14 @@
       <td><%= account.date %></td>
       <td><%= account.category %></td>
       <td><%= account.money %></td>
+      <% @sum_money += account.money %>
     </tr>
   <% end %>
+  <tr>
+    <td></td>
+    <td></td>
+    <td><%= @sum_money %></td>
+  </tr>
 </table>
 <!-- <div id="calendar">
   <%= month_calendar do |date| %>
