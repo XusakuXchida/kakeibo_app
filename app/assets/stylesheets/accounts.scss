@@ -4,10 +4,15 @@
 
 .account_index {
   background-color: whitesmoke ;
+  margin-top: 0px;
 }
 
 .form_table td{
   width: 130px;
+}
+
+.data_table {
+  margin: 50px;
 }
 
 .data_table td{
@@ -31,4 +36,12 @@
 
 #sum_tr {
   font-weight: bold;
+}
+
+.fa-trash-alt {
+  padding-left: 15px;
+}
+
+.fa-cog {
+  padding-left: 10px;
 }

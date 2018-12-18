@@ -18,4 +18,10 @@ class AccountsController < ApplicationController
       redirect_to "/home"
     end
   end
+
+  def destroy
+    account = Account.find(params[:id])
+    account.destroy
+    render json: { account: @account }
+  end
 end

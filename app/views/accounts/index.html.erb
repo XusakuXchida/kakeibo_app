@@ -42,11 +42,17 @@
       <td>金額</td>
     </tr>
     <% @accounts.each do |account| %>
-      <tr>
+      <tr class="account_tr">
         <td class="date"><%= account.date.to_s.gsub(/-/,'/')  %></td>
         <td class="category"><%= account.category %></td>
         <td class="purpose"><%= account.purpose %></td>
         <td class="money"><%= account.money %></td>
+        <td>
+          <%= link_to account_path(account.id), method: "delete", style: "color: gray;", remote: true do %>
+            <i class="fa fa-trash-alt"></i>
+          <% end %>
+          <i class="fa fa-cog"></i>
+        </td>
         <% @sum_money += account.money %>
       </tr>
     <% end %>

@@ -15,4 +15,14 @@ $(function(){
       $(this).prev().css('background-color', 'lightgreen');
     }
   });
+
+  // ゴミ箱clickで動画削除
+  $('a[data-method="delete"]').on('ajax:success', function(xhr,data,status){
+    alert('この勘定を削除します');
+    var money = parseInt($(this).parent('td').prev('td').text());
+    var sum_money = parseInt($('#sum_money').text());
+    sum_money = sum_money - money
+    $('#sum_money').text(sum_money);
+    $(this).parent('td').parent('tr').fadeOut();
+  });
 });
