@@ -1,6 +1,6 @@
 <h1>家計簿 index</h1>
 <p>今日の日付：<%= @today.to_s.gsub(/-/,'/') %></p>
-
+<%= @current_month %>
 <div class="account-form">
   <%= form_tag request.url do %>
     <table class="form_table">
@@ -32,7 +32,7 @@
 ===================================
 <br>
 
-<h4>過去のお買い物データ</h4><br>
+<h4>今月のお買い物データ</h4><br>
 <table class="data_table">
   <tr class="columns">
     <td>日付</td>

@@ -1,9 +1,9 @@
 class AccountsController < ApplicationController
   def index
-    @accounts = Account.all
-    @sum_money = 0
-
     @today = Date.today
+    beginning_of_month = @today.beginning_of_month
+    @accounts = Account.all.search_by_month(beginning_of_month)
+    @sum_money = 0
   end
 
   def create
