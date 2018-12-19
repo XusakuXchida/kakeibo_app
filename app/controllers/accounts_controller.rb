@@ -42,6 +42,6 @@ class AccountsController < ApplicationController
   def destroy
     account = Account.find(params[:id])
     account.destroy
-    render json: { account: @account }
+    redirect_to action: "index"
   end
 end

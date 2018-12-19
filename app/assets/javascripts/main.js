@@ -1,4 +1,4 @@
-$(function(){
+$(document).on('turbolinks:load', function(){
   $('.purpose').each(function(){
     var type = $(this).text()
     if(type === '生活費') {
@@ -16,13 +16,17 @@ $(function(){
     }
   });
 
-  // ゴミ箱clickで動画削除
-  $('a[data-method="delete"]').on('ajax:success', function(xhr,data,status){
+  $('.fa-trash-alt').click(function(){
     alert('この勘定を削除します');
-    var money = parseInt($(this).parent('td').prev('td').text());
-    var sum_money = parseInt($('#sum_money').text());
-    sum_money = sum_money - money
-    $('#sum_money').text(sum_money);
-    $(this).parent('td').parent('tr').fadeOut();
-  });
+  })
+
+  // ゴミ箱clickで勘定削除して合計金額計算
+  // $('a[data-method="delete"]').on('ajax:success', function(xhr,data,status){
+  //   alert('この勘定を削除します');
+  //   var money = parseInt($(this).parent('td').prev('td').text());
+  //   var sum_money = parseInt($('#sum_money').text());
+  //   sum_money = sum_money - money
+  //   $('#sum_money').text(sum_money);
+  //   $(this).parent('td').parent('tr').fadeOut();
+  // });
 });
