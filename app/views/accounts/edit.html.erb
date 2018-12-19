@@ -1,0 +1,29 @@
+<section class="account_edit">
+  <h1>再入力</h1>
+  <div class="account-form">
+    <%= form_tag request.url do %>
+      <table class="form_table" cellspacing="0" border="2">
+        <tr class="columns">
+          <td>日付</td>
+          <td>カテゴリー</td>
+          <td>目的</td>
+          <td>金額</td>
+        </tr>
+        <tr>
+          <td><input type="text" id="text1" name="date" value="<%= @account.date.to_s.gsub(/-/,'/') %>"></td>
+          <td><input type="text" id="text2" name="category" value="<%= @account.category %>"></td>
+          <td>
+            <select name="purpose">
+              <option value="">選択して下さい</option>
+              <option <%= "selected" if @account.purpose == "生活費" %>>生活費</option>
+              <option <%= "selected" if @account.purpose == "趣味・娯楽" %>>趣味・娯楽</option>
+              <option <%= "selected" if @account.purpose == "仕事・勉強" %>>仕事・勉強</option>
+            </select>
+          </td>
+          <td><input type="text" id="test3" name="money" value="<%= @account.money %>"></td>
+        </tr>
+      </table>
+      <input type="submit" value="再入力" class="submit_button">
+    <% end %>
+  </div>
+</section>

@@ -19,6 +19,23 @@ class AccountsController < ApplicationController
     end
   end
 
+  def edit
+    @account = Account.find(params[:id])
+  end
+
+  def update
+    account = Account.find(params[:id])
+    account.date = params[:date]
+    account.category = params[:category]
+    account.purpose = params[:purpose]
+    account.money = params[:money]
+    if account.save
+      redirect_to action: "index"
+    else
+      redirect_to "/home"
+    end
+  end
+
   def destroy
     account = Account.find(params[:id])
     account.destroy

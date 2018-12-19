@@ -4,8 +4,8 @@
   <%= @current_month %>
   <div class="account-form">
     <%= form_tag request.url do %>
-      <table class="form_table">
-        <tr>
+      <table class="form_table" cellspacing="0" border="2">
+        <tr class="columns">
           <td>日付</td>
           <td>カテゴリー</td>
           <td>目的</td>
@@ -25,7 +25,7 @@
           <td><input type="text" id="test3" name="money"></td>
         </tr>
       </table>
-      <input type="submit" value="登録">
+      <input type="submit" value="入力" class="submit_button">
     <% end %>
   </div>
 
@@ -51,7 +51,9 @@
           <%= link_to account_path(account.id), method: "delete", style: "color: gray;", remote: true do %>
             <i class="fa fa-trash-alt"></i>
           <% end %>
-          <i class="fa fa-cog"></i>
+          <%= link_to edit_account_path(account.id), style: "color: gray;" do %>
+            <i class="fa fa-cog"></i>
+          <% end %>
         </td>
         <% @sum_money += account.money %>
       </tr>

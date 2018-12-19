@@ -2,9 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// index page
 .account_index {
   background-color: whitesmoke ;
   margin-top: 0px;
+}
+
+.account-form {
+  margin: 50px;
 }
 
 .form_table td{
@@ -44,4 +49,9 @@
 
 .fa-cog {
   padding-left: 10px;
+}
+
+// edit page
+.account_edit {
+  background-color: whitesmoke ;
 }
