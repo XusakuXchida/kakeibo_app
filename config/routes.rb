@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+  get 'categories/index'
+
   resources :home
   resources :accounts
+  resources :categories
   # get 'accounts/index'
   # get 'home/index'
 

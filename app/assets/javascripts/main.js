@@ -16,6 +16,7 @@ $(document).on('turbolinks:load', function(){
     }
   });
 
+  //ゴミ箱clickで勘定削除のアラート表示
   $('.fa-trash-alt').click(function(){
     alert('この勘定を削除します');
   })

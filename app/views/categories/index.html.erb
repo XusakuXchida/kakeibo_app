@@ -1,0 +1,10 @@
+<section class="category_index">
+  <h1>カテゴリー 一覧です</h1>
+  <p>普段買い物するカテゴリーをカスタマイズしましょう</p>
+
+  <table>
+    <% @categories.each do |category| %>
+      <tr><%= category.name %></tr>
+    <% end %>
+  </table>
+</section>
