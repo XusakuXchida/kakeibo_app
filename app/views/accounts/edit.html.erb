@@ -1,7 +1,7 @@
 <section class="account_edit">
-  <h1>再入力</h1>
+  <h1>家計簿の編集</h1>
   <div class="account-form">
-    <%= form_tag request.url do %>
+    <%= form_tag account_path(@account.id), method: "put" do %>
       <table class="form_table" cellspacing="0" border="2">
         <tr class="columns">
           <td>日付</td>

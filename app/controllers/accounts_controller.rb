@@ -4,6 +4,9 @@ class AccountsController < ApplicationController
     beginning_of_month = @today.beginning_of_month
     @accounts = Account.all.search_by_month(beginning_of_month)
     @sum_money = 0
+    @sum_money_red = 0
+    @sum_money_yellow = 0
+    @sum_money_green = 0
   end
 
   def create
