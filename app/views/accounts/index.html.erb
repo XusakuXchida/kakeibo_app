@@ -29,6 +29,15 @@
     <% end %>
   </div>
 
+
+  <div class="link_button">
+    <%= link_to "カテゴリーを編集", categories_path %>
+  </div>
+  <div>
+    <% @categories.each do |category| %>
+      <%= category.name %>
+    <% end %>
+  </div>
   <br>
   ===================================
   <br>

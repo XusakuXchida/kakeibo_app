@@ -7,6 +7,8 @@ class AccountsController < ApplicationController
     @sum_money_red = 0
     @sum_money_yellow = 0
     @sum_money_green = 0
+
+    @categories = Category.all
   end
 
   def create
@@ -16,7 +18,7 @@ class AccountsController < ApplicationController
     account.purpose = params[:purpose]
     account.money = params[:money]
     if account.save
-      redirect_to action: "index"
+      redirect_to accounts_path
     else
       redirect_to "/home"
     end
@@ -33,7 +35,7 @@ class AccountsController < ApplicationController
     account.purpose = params[:purpose]
     account.money = params[:money]
     if account.save
-      redirect_to action: "index"
+      redirect_to accounts_path
     else
       redirect_to "/home"
     end
@@ -42,6 +44,6 @@ class AccountsController < ApplicationController
   def destroy
     account = Account.find(params[:id])
     account.destroy
-    redirect_to action: "index"
+    redirect_to accounts_path
   end
 end

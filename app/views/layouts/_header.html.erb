@@ -1,0 +1,15 @@
+<header class="header">
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">家計簿</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class=<%= "active" if request.path == accounts_path %>><%= link_to 'Index', accounts_path %></li>
+        <li class=<%= "active" if request.path == categories_path %>><%= link_to 'カテゴリー編集', categories_path %></li>
+        <li><a href="#">Page 2</a></li>
+        <li><a href="#">Page 3</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
