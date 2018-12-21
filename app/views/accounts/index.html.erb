@@ -12,8 +12,15 @@
           <td>金額</td>
         </tr>
         <tr>
-          <td><input type="text" id="text1" name="date"></td>
-          <td><input type="text" id="text2" name="category"></td>
+          <td><input type="text" name="date"></td>
+          <td>
+            <select name="category">
+              <option value="">選択して下さい</option>
+              <% @categories.each do |category| %>
+                <option><%= category.name %></option>
+              <% end %>
+            </select>
+          </td>
           <td>
             <select name="purpose">
               <option value="">選択して下さい</option>
@@ -22,7 +29,7 @@
               <option>仕事・勉強</option>
             </select>
           </td>
-          <td><input type="text" id="test3" name="money"></td>
+          <td><input type="text" name="money"></td>
         </tr>
       </table>
       <input type="submit" value="入力" class="submit_button">
