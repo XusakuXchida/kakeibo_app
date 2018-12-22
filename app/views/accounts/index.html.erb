@@ -12,7 +12,7 @@
           <td>金額</td>
         </tr>
         <tr>
-          <td><input type="text" name="date"></td>
+          <td><input type="text" name="date" value="<%= @today.to_s.gsub(/-/,'/') %>"></td>
           <td>
             <select name="category">
               <option value="">選択して下さい</option>
@@ -35,7 +35,11 @@
       <input type="submit" value="入力" class="submit_button">
     <% end %>
   </div>
-
+  <div id="calendar">
+    <%= month_calendar do |date| %>
+      <%= date.day %>
+    <% end %>
+  </div>
 
   <div class="link_button">
     <%= link_to "カテゴリーを編集", categories_path %>
@@ -111,9 +115,4 @@
     <tr>
     </tr>
   </table>
-  <!-- <div id="calendar">
-    <%= month_calendar do |date| %>
-      <%= date %>
-    <% end %>
-  </div> -->
 </section>

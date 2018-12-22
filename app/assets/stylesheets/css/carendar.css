@@ -1,0 +1,26 @@
+.simple-calendar {
+  width: 250px;
+}
+
+.calendar-heading {
+  text-align: center;
+}
+
+.table-striped {
+  table-layout: fixed;
+}
+
+.prev-month {
+  visibility:hidden;
+}
+
+.next-month {
+  visibility:hidden;
+}
+
+.today {
+  font-weight:bold;
+}
+.future {
+  color: gray;
+}
