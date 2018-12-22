@@ -11,8 +11,8 @@
     </caption>
     <thead>
       <tr>
-        <% date_range.slice(0, 7).each do |day| %>
-          <th><%= t('date.abbr_day_names')[day.wday] %></th>
+        <% ["月","火","水","木","金","土","日"].each do |day| %>
+          <th><%= day %></th>
         <% end %>
       </tr>
     </thead>
