@@ -1,5 +1,10 @@
 class AccountsController < ApplicationController
   def index
+    respond_to do |format|
+      format.html
+      format.js
+    end
+    
     @today = Date.today
     beginning_of_month = @today.beginning_of_month
     @accounts = Account.all.search_by_month(beginning_of_month)

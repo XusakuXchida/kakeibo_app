@@ -16,10 +16,18 @@ $(document).on('turbolinks:load', function(){
     }
   });
 
+
   //ゴミ箱clickで勘定削除のアラート表示
   $('.fa-trash-alt').click(function(){
     alert('この勘定を削除します');
   })
+
+  // 日付テキストボックスにフォーカスでカレンダー表示
+  // $('#date').focus(function(){
+  //   $('#calendar').css('display','block');
+  // // }).blur(function(){
+  // //   $('#calendar').css('display','none');
+  // });
 
   // ゴミ箱clickで勘定削除して合計金額計算
   // $('a[data-method="delete"]').on('ajax:success', function(xhr,data,status){
