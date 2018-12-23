@@ -1,7 +1,8 @@
 <section class="account_index">
   <h1>家計簿 index</h1>
   <p>今日の日付：<%= @today.to_s.gsub(/-/,'/') %></p>
-  <%= params %>
+  <div class="test"></div>
+
   <div class="account-form">
     <%= form_tag request.url do %>
       <table class="form_table" cellspacing="0" border="2">
@@ -35,10 +36,10 @@
       <input type="submit" value="入力" class="submit_button">
     <% end %>
   </div>
+
   <div id="calendar">
     <%= render 'calendar' %>
   </div>
-
   <div class="link_button">
     <%= link_to "カテゴリーを編集", categories_path %>
   </div>

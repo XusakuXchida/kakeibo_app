@@ -22,12 +22,23 @@ $(document).on('turbolinks:load', function(){
     alert('この勘定を削除します');
   })
 
-  // 日付テキストボックスにフォーカスでカレンダー表示
-  // $('#date').focus(function(){
-  //   $('#calendar').css('display','block');
-  // // }).blur(function(){
-  // //   $('#calendar').css('display','none');
-  // });
+  //日付テキストボックスにフォーカスでカレンダー表示
+  $('#date').focus(function(){
+    $('#calendar').fadeIn();
+  }).blur(function(){
+    $('#calendar').fadeOut();
+  });
+  $('.day').click(function(){
+    var date = $(this).find('i').text();
+    $('#date').val(date);
+    //$('.test').text(date);
+    $('#calendar').fadeOut();
+  })
+
+  //test
+  $('h1').click(function(){
+    $('.test').text('test');
+  })
 
   // ゴミ箱clickで勘定削除して合計金額計算
   // $('a[data-method="delete"]').on('ajax:success', function(xhr,data,status){

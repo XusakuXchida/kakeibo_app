@@ -24,9 +24,12 @@
   width: 150px;
 }
 
-// #calendar {
-//   display: none;
-// }
+#calendar {
+  background-color: white;
+  z-index: 2;
+  position: absolute;
+  display: none;
+}
 
 .columns {
   background-color: lightgray ;
