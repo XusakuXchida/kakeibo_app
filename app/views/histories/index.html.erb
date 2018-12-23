@@ -1,0 +1,14 @@
+<section class="history_index">
+  <h1>履歴</h1>
+  <p>Find me in app/views/histories/index.html.erb</p>
+
+  <div class="history_list">
+    <table cellspacing="0" border="2">
+      <% 13.times do |i| %>
+        <tr>
+          <td><%= "#{(@today - i.month).year}年 #{(@today - i.month).month}月" %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</section>

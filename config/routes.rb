@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
+  get 'histories/index'
+
   get 'categories/index'
 
   resources :home
   resources :accounts
   resources :categories
+  resources :histories
   # get 'accounts/index'
   # get 'home/index'
 
