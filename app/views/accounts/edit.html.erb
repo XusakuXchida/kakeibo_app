@@ -11,7 +11,14 @@
         </tr>
         <tr>
           <td><input type="text" id="text1" name="date" value="<%= @account.date.to_s.gsub(/-/,'/') %>"></td>
-          <td><input type="text" id="text2" name="category" value="<%= @account.category %>"></td>
+          <td>
+            <select name="category">
+              <option value="">選択して下さい</option>
+              <% @categories.each do |category| %>
+                <option <%= "selected" if @account.category == category.name %>><%= category.name %></option>
+              <% end %>
+            </select>
+          </td>
           <td>
             <select name="purpose">
               <option value="">選択して下さい</option>

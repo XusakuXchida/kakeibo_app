@@ -10,6 +10,7 @@
 
 .account-form {
   margin: 50px;
+  float: left;
 }
 
 .form_table td{
@@ -18,6 +19,7 @@
 
 .data_table {
   margin: 50px;
+  float: left;
 }
 
 .data_table td {
@@ -31,6 +33,13 @@
   display: none;
 }
 
+.fix_category {
+  margin: 50px;
+}
+
+h4 {
+  text-align: center;
+}
 .columns {
   background-color: lightgray ;
   font-weight: bold;
@@ -58,12 +67,13 @@
   padding-left: 10px;
 }
 
-.summary_table td {
-  width: 150px;
-}
-
 .summary_table {
   margin: 50px;
+  float: left;
+}
+
+.summary_table td {
+  width: 150px;
 }
 
 // edit page
