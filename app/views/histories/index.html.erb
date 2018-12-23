@@ -6,7 +6,12 @@
     <table cellspacing="0" border="2">
       <% 13.times do |i| %>
         <tr>
-          <td><%= "#{(@today - i.month).year}年 #{(@today - i.month).month}月" %></td>
+          <td>
+            <% year = (@today - i.month).year %>
+            <% month = "%02d" % (@today - i.month).month %>
+            <%= link_to "#{year}年 #{month}月" ,
+                          history_path("#{year}-#{month}") %>
+          </td>
         </tr>
       <% end %>
     </table>

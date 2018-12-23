@@ -1,0 +1,69 @@
+<section class="history_show">
+  <h1><%= "#{@year}年 #{@month}月"%></h1>
+
+  <div class="date_tables">
+    <table class="data_table">
+      <tr>
+        <td colspan="4"><h4><%= "#{@year}年 #{@month}月 のお買い物データ"%></h4></td>
+      </tr>
+      <tr class="columns">
+        <td>日付</td>
+        <td>カテゴリー</td>
+        <td>目的</td>
+        <td>金額</td>
+      </tr>
+      <% @accounts.each do |account| %>
+        <tr class="account_tr">
+          <td class="date"><%= account.date.to_s.gsub(/-/,'/')  %></td>
+          <td class="category"><%= account.category %></td>
+          <td class="purpose"><%= account.purpose %></td>
+          <td class="money"><%= account.money %></td>
+          <td>
+            <%= link_to account_path(account.id), method: "delete", style: "color: gray;" do %>
+              <i class="fa fa-trash-alt"></i>
+            <% end %>
+            <%= link_to edit_account_path(account.id), style: "color: gray;" do %>
+              <i class="fa fa-cog"></i>
+            <% end %>
+          </td>
+          <% @sum_money += account.money %>
+          <% @sum_money_red += account.money if account.purpose == "趣味・娯楽" %>
+          <% @sum_money_yellow += account.money if account.purpose == "生活費" %>
+          <% @sum_money_green += account.money if account.purpose == "仕事・勉強" %>
+        </tr>
+      <% end %>
+      <tr id="sum_tr">
+        <td></td>
+        <td></td>
+        <td><i id="sum_td">合計 :</i></td>
+        <td id="sum_money"><%= @sum_money %></td>
+      </tr>
+    </table>
+    =========================================
+    <br>
+    <table class="summary_table">
+      <tr>
+        <td colspan="2"><h4>目的ごとサマリー</h4></td>
+      </tr>
+      <tr class="columns">
+        <td>目的</td>
+        <td>合計金額</td>
+      </tr>
+      <tr>
+        <td class="purpose">趣味・娯楽</td>
+        <td><%= @sum_money_red %></td>
+      </tr>
+      <tr>
+        <td class="purpose">生活費</td>
+        <td><%= @sum_money_yellow %></td>
+      </tr>
+      <tr>
+        <td class="purpose">仕事・勉強</td>
+        <td><%= @sum_money_green %></td>
+      </tr>
+      <tr>
+      </tr>
+    </table>
+  </div>
+
+</section>
