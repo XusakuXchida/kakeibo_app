@@ -9,10 +9,17 @@
     <% end %>
   </div>
 
-  <table>
+  <table class="category_list" cellspacing="0" border="2">
+    <tr class="columns">
+      <td>カテゴリー名</td>
+    </tr>
     <% @categories.each do |category| %>
       <tr>
-        <td><%= category.name %></td>
+        <td><%= category.name %>
+          <%= link_to category_path(category.id), method: "delete", style: "color: gray;" do %>
+            <i class="fa fa-trash-alt"></i>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </table>

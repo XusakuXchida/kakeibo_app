@@ -70,7 +70,7 @@
           <td class="purpose"><%= account.purpose %></td>
           <td class="money"><%= account.money %></td>
           <td>
-            <%= link_to account_path(account.id), method: "delete", style: "color: gray;", remote: true do %>
+            <%= link_to account_path(account.id), method: "delete", style: "color: gray;" do %>
               <i class="fa fa-trash-alt"></i>
             <% end %>
             <%= link_to edit_account_path(account.id), style: "color: gray;" do %>
