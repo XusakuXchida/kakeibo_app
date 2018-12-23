@@ -14,6 +14,9 @@ class AccountsController < ApplicationController
   def create
     account = Account.new
     account.date = params[:date]
+    account.year = params[:date].to_date.year
+    account.month = params[:date].to_date.month
+    account.day = params[:date].to_date.day
     account.category = params[:category]
     account.purpose = params[:purpose]
     account.money = params[:money]
@@ -32,6 +35,9 @@ class AccountsController < ApplicationController
   def update
     account = Account.find(params[:id])
     account.date = params[:date]
+    account.year = params[:date].to_date.year
+    account.month = params[:date].to_date.month
+    account.day = params[:date].to_date.day
     account.category = params[:category]
     account.purpose = params[:purpose]
     account.money = params[:money]
