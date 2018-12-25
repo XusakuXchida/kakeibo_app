@@ -1,7 +1,8 @@
 class AccountsController < ApplicationController
   def index
     @today = Date.today
-    # beginning_of_month = @today.beginning_of_month
+    @year = @today.year
+    @month = @today.month
     @accounts = Account.all.search_by_month(@today.beginning_of_month)
     set_sum_money
 

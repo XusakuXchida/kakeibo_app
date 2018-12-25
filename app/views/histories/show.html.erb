@@ -4,7 +4,12 @@
   <div class="date_tables">
     <table class="data_table">
       <tr>
-        <td colspan="4"><h4><%= "#{@year}年 #{@month}月 のお買い物データ"%></h4></td>
+        <td colspan="4">
+          <h4><%= link_to "<<", history_path("#{@prev_m.year}-#{@prev_m.month}") %>
+            <%= "#{@year}年 #{@month}月 のお買い物データ"%>
+            <%= link_to ">>", history_path("#{@next_m.year}-#{@next_m.month}") unless "#{@year}/#{@month}" == "#{@today.year}/#{@today.month}" %>
+          </h4>
+        </td>
       </tr>
       <tr class="columns">
         <td>日付</td>
