@@ -1,13 +1,51 @@
 <section class="history_show">
   <h1><%= "#{@year}年 #{@month}月"%></h1>
+  <%= @prev_m %>
+
+  <div class="account-form">
+    <%= form_tag accounts_path do %>
+      <table class="form_table" cellspacing="0" border="2">
+        <tr class="columns">
+          <td>日付</td>
+          <td>カテゴリー</td>
+          <td>目的</td>
+          <td>金額</td>
+        </tr>
+        <tr>
+          <td><input type="text" name="date" value="<%= @today.to_s.gsub(/-/,'/') %>" id="date"></td>
+          <td>
+            <select name="category">
+              <option value="">選択して下さい</option>
+              <% @categories.each do |category| %>
+                <option><%= category.name %></option>
+              <% end %>
+            </select>
+          </td>
+          <td>
+            <select name="purpose">
+              <option value="">選択して下さい</option>
+              <option>生活費</option>
+              <option>趣味・娯楽</option>
+              <option>仕事・勉強</option>
+            </select>
+          </td>
+          <td><input type="text" name="money"></td>
+        </tr>
+      </table>
+      <input type="submit" value="入力" class="submit_button">
+    <% end %>
+    <div id="calendar">
+      <%= render 'share/calendar' %>
+    </div>
+  </div>
 
   <div class="date_tables">
     <table class="data_table">
       <tr>
         <td colspan="4">
-          <h4><%= link_to "<<", history_path("#{@prev_m.year}-#{@prev_m.month}") %>
+          <h4><%= link_to "<<", history_path("#{@prev_m.year}-#{@prev_m.month}", start_date: @prev_m) %>
             <%= "#{@year}年 #{@month}月 のお買い物データ"%>
-            <%= link_to ">>", history_path("#{@next_m.year}-#{@next_m.month}") unless "#{@year}/#{@month}" == "#{@today.year}/#{@today.month}" %>
+            <%= link_to ">>", history_path("#{@next_m.year}-#{@next_m.month}", start_date: @next_m) unless "#{@year}/#{@month}" == "#{@today.year}/#{@today.month}" %>
           </h4>
         </td>
       </tr>

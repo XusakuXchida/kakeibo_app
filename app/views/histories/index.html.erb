@@ -10,7 +10,7 @@
             <% year = (@today - i.month).year %>
             <% month = "%02d" % (@today - i.month).month %>
             <%= link_to "#{year}年 #{month}月" ,
-                          history_path("#{year}-#{month}") %>
+                          history_path("#{year}-#{month}", start_date: "#{year}-#{month}-1") %>
           </td>
         </tr>
       <% end %>

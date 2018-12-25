@@ -13,7 +13,8 @@ class AccountsController < ApplicationController
     @account = Account.new
     get_params
     if @account.save
-      redirect_to accounts_path
+      redirect_to history_path("#{@account.year}-#{@account.month}",
+                   start_date: "#{@account.year}-#{@account.month}-1")
     else
       redirect_to "/home"
     end
@@ -28,7 +29,8 @@ class AccountsController < ApplicationController
     @account = Account.find(params[:id])
     get_params
     if @account.save
-      redirect_to history_path("#{@account.year}-#{@account.month}")
+      redirect_to history_path("#{@account.year}-#{@account.month}",
+                   start_date: "#{@account.year}-#{@account.month}-1")
     else
       redirect_to "/home"
     end
