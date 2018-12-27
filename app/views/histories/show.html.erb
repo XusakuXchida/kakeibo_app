@@ -68,10 +68,6 @@
               <i class="fa fa-cog"></i>
             <% end %>
           </td>
-          <% @sum_money += account.money %>
-          <% @sum_money_red += account.money if account.purpose == "趣味・娯楽" %>
-          <% @sum_money_yellow += account.money if account.purpose == "生活費" %>
-          <% @sum_money_green += account.money if account.purpose == "仕事・勉強" %>
         </tr>
       <% end %>
       <tr id="sum_tr">

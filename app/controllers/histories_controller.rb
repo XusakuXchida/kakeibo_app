@@ -27,9 +27,9 @@ class HistoriesController < ApplicationController
   private
 
     def set_sum_money
-      @sum_money = 0
-      @sum_money_red = 0
-      @sum_money_yellow = 0
-      @sum_money_green = 0
+      @sum_money = @accounts.total_amount
+      @sum_money_red = @accounts.only_red.total_amount
+      @sum_money_yellow = @accounts.only_yellow.total_amount
+      @sum_money_green = @accounts.only_green.total_amount
     end
 end
