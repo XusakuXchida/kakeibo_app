@@ -20,14 +20,20 @@ $(document).on('turbolinks:load', function(){
   //ゴミ箱clickで勘定削除のアラート表示
   $('.fa-trash-alt').click(function(){
     alert('この勘定を削除します');
-  })
+  });
 
   //日付テキストボックスにフォーカスでカレンダー表示
   $('#date').focus(function(){
     $('#calendar').fadeIn();
-  }).blur(function(){
-    $('#calendar').fadeOut();
   });
+
+  //カレンダーのリンクから別月へジャンプした場合、カレンダー表示されっぱなし
+  var param = location.search.substring(1);
+  if (param) {
+    $('.account_index #calendar').css('display', 'block');
+  }
+
+  //カレンダーの日付をクリックするとtextに代入される
   $('.day').click(function(){
     var date = $(this).find('i').text();
     $('#date').val(date);

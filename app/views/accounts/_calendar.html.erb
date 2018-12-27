@@ -1,5 +1,4 @@
 <%= month_calendar do |date| %>
   <a class="test_day"><%= date.day %></a>
-  
   <i hidden><%= date.to_s.gsub(/-/,'/') %></i>
 <% end %>

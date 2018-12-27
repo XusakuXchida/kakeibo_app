@@ -1,6 +1,5 @@
 <section class="history_show">
   <h1><%= "#{@year}年 #{@month}月"%></h1>
-  <%= @prev_m %>
 
   <div class="account-form">
     <%= form_tag accounts_path do %>
@@ -12,7 +11,7 @@
           <td>金額</td>
         </tr>
         <tr>
-          <td><input type="text" name="date" value="<%= @today.to_s.gsub(/-/,'/') %>" id="date"></td>
+          <td><input type="text" name="date" value="" id="date"></td>
           <td>
             <select name="category">
               <option value="">選択して下さい</option>
