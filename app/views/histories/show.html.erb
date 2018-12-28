@@ -59,7 +59,7 @@
           <td class="date"><%= account.date.to_s.gsub(/-/,'/')  %></td>
           <td class="category"><%= account.category %></td>
           <td class="purpose"><%= account.purpose %></td>
-          <td class="money"><%= account.money %></td>
+          <td class="money"><%= "¥#{account.money.to_s(:delimited)}" %></td>
           <td>
             <%= link_to account_path(account.id), method: "delete", style: "color: gray;" do %>
               <i class="fa fa-trash-alt"></i>
@@ -74,7 +74,7 @@
         <td></td>
         <td></td>
         <td><i id="sum_td">合計 :</i></td>
-        <td id="sum_money"><%= @sum_money %></td>
+        <td id="sum_money"><%= "¥#{@sum_money.to_s(:delimited)}" %></td>
       </tr>
     </table>
     =========================================
@@ -89,15 +89,15 @@
       </tr>
       <tr>
         <td class="purpose">趣味・娯楽</td>
-        <td><%= @sum_money_red %></td>
+        <td><%= "¥#{@sum_money_red.to_s(:delimited)}" %></td>
       </tr>
       <tr>
         <td class="purpose">生活費</td>
-        <td><%= @sum_money_yellow %></td>
+        <td><%= "¥#{@sum_money_yellow.to_s(:delimited)}" %></td>
       </tr>
       <tr>
         <td class="purpose">仕事・勉強</td>
-        <td><%= @sum_money_green %></td>
+        <td><%= "¥#{@sum_money_green.to_s(:delimited)}" %></td>
       </tr>
       <tr>
       </tr>

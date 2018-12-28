@@ -1,6 +1,14 @@
 class HistoriesController < ApplicationController
   def index
     @today = Date.today
+
+    @recently_ym = []
+    13.times do |i|
+      year = (@today - i.month).year
+      month = "%02d" % (@today - i.month).month
+      sum = Account.search_by_year_and_month(year, month).total_amount
+      @recently_ym << [year, month, sum]
+    end
   end
 
   def show

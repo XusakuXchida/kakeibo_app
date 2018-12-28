@@ -4,13 +4,27 @@
 
   <div class="history_list">
     <table cellspacing="0" border="2">
-      <% 13.times do |i| %>
+<!--       <% 13.times do |i| %>
         <tr>
           <td>
             <% year = (@today - i.month).year %>
             <% month = "%02d" % (@today - i.month).month %>
             <%= link_to "#{year}年 #{month}月" ,
                           history_path("#{year}-#{month}", start_date: "#{year}-#{month}-1") %>
+          </td>
+        </tr>
+      <% end %> -->
+      <% @recently_ym.each do |ym| %>
+        <tr>
+          <td>
+            <% year = ym[0] %>
+            <% month = ym[1] %>
+            <% sum = ym[2] %>
+            <%= link_to "#{year}年 #{month}月" ,
+                        history_path("#{ym[0]}-#{ym[1]}", start_date: "#{ym[0]}-#{ym[1]}-1") %>
+          </td>
+          <td class="monthly_sum">
+            <%= "¥#{sum.to_s(:delimited)}" %>
           </td>
         </tr>
       <% end %>
