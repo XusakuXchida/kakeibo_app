@@ -39,19 +39,6 @@
       <%= render 'share/calendar' %>
     </div>
   </div>
-
-  <div calss="fix_category">
-    <div class="link_button">
-      <%= link_to "カテゴリーを追加・編集", categories_path %>
-    </div>
-    <div>
-      <% @categories.each do |category| %>
-        <%= category.name %>
-      <% end %>
-    </div>
-  </div>
-  <br>
-
   <div class="date_tables">
     <table class="data_table">
       <tr>

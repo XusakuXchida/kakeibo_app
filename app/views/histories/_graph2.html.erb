@@ -8,10 +8,18 @@ var myBarChart = new Chart(ctx, {
     labels: gon.labels,
     datasets: [
       {
-        label: '毎月の合計金額',
-        data: gon.sums,
-        backgroundColor: "rgba(130,201,169,0.5)"
-      }
+          label: '趣味・娯楽',
+          data: gon.sums_red,
+          backgroundColor: "rgba(219,39,91,0.5)"
+        },{
+          label: '生活費',
+          data: gon.sums_yellow,
+          backgroundColor: "rgba(255,183,76,0.5)"
+        },{
+          label: '仕事・勉強',
+          data: gon.sums_green,
+          backgroundColor: "rgba(176,237,148,0.9)"
+        }
     ]
   },
   options: {

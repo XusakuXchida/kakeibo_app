@@ -4,18 +4,28 @@ class HistoriesController < ApplicationController
 
     @recently_ym = []
     @recently = []
-    @sum_array = []
+    @hash_sums = {}
+    @hash_sums["sums"] = []
+    @hash_sums["sums_red"] = []
+    @hash_sums["sums_yellow"] = []
+    @hash_sums["sums_green"] = []
     13.times do |i|
       year = (@today - i.month).year
       month = "%02d" % (@today - i.month).month
       sum = Account.search_by_year_and_month(year, month).total_amount
       @recently_ym << [year, month, sum]
       @recently << "#{year}年 #{month}月"
-      @sum_array << sum
+      @hash_sums["sums"] << sum
+      @hash_sums["sums_red"] << Account.search_by_year_and_month(year, month).only_red.total_amount
+      @hash_sums["sums_yellow"] << Account.search_by_year_and_month(year, month).only_yellow.total_amount
+      @hash_sums["sums_green"] << Account.search_by_year_and_month(year, month).only_green.total_amount
     end
     gon.labels = @recently.reverse
-    gon.sums = @sum_array.reverse
-    gon.sums_max = @sum_array.max
+    gon.sums = @hash_sums["sums"].reverse
+    gon.sums_red = @hash_sums["sums_red"].reverse
+    gon.sums_yellow = @hash_sums["sums_yellow"].reverse
+    gon.sums_green = @hash_sums["sums_green"].reverse
+    gon.sums_max = @hash_sums["sums"] .max
   end
 
   def show
