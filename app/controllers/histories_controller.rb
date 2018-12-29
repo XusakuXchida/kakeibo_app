@@ -3,12 +3,19 @@ class HistoriesController < ApplicationController
     @today = Date.today
 
     @recently_ym = []
+    @recently = []
+    @sum_array = []
     13.times do |i|
       year = (@today - i.month).year
       month = "%02d" % (@today - i.month).month
       sum = Account.search_by_year_and_month(year, month).total_amount
       @recently_ym << [year, month, sum]
+      @recently << "#{year}年 #{month}月"
+      @sum_array << sum
     end
+    gon.labels = @recently.reverse
+    gon.sums = @sum_array.reverse
+    gon.sums_max = @sum_array.max
   end
 
   def show

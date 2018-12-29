@@ -1,0 +1,37 @@
+<h1>棒グラフ</h1>
+<canvas id="myBarChart" width="800"></canvas>
+<script>
+var ctx = document.getElementById("myBarChart");
+var myBarChart = new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: gon.labels,
+    datasets: [
+      {
+        label: '毎月の合計金額',
+        data: gon.sums,
+        backgroundColor: "rgba(130,201,169,0.5)"
+      }
+    ]
+  },
+  options: {
+    responsive: false,
+    title: {
+      display: true,
+      text: '過去1年間の分析'
+    },
+    scales: {
+      yAxes: [{
+        ticks: {
+          suggestedMax: gon.sums_max,
+          suggestedMin: 0,
+          stepSize: gon.sums_max / 10,
+          callback: function(value, index, values){
+            return  '¥' + value
+          }
+        }
+      }]
+    },
+  }
+});
+</script>

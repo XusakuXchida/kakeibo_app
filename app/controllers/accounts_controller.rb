@@ -7,6 +7,7 @@ class AccountsController < ApplicationController
     set_sum_money
 
     @categories = Category.all
+    #gon.str = 'Hello World'
   end
 
   def create
