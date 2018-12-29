@@ -1,5 +1,10 @@
 class HistoriesController < ApplicationController
   def index
+    respond_to do |format|
+      format.html
+      format.js
+    end
+
     @today = Date.today
 
     @recently_ym = []

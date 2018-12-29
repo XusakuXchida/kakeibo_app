@@ -8,7 +8,6 @@
         <li class=<%= "active" if request.path == accounts_path %>><%= link_to 'Index', accounts_path %></li>
         <li class=<%= "active" if request.path == categories_path %>><%= link_to 'カテゴリー編集', categories_path %></li>
         <li class=<%= "active" if request.path.include?("histories") %>><%= link_to '履歴', histories_path %></li>
-        <li><a href="#">Page 3</a></li>
       </ul>
     </div>
   </nav>

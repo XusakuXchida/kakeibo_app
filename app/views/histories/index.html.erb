@@ -20,7 +20,28 @@
       <% end %>
     </table>
   </div>
-
-  <%= render 'graph2' %>
-
+  <h1>毎月の集計</h1>
+  <div class="graph_button">
+    <ul>
+      <li>
+        <%= button_to '合計金額', request.url,
+                                   { params: {graph_switch: '1' }, method: :get, remote: true } %>
+      </li>
+      <li>
+        <%= button_to '目的別の合計', request.url,
+                                    { params: {graph_switch: '2' }, method: :get, remote: true } %>
+      </li>
+    </ul>
+  </div>
+  <div class="display_graph">
+    <%= render params[:graph_switch] == "2" ? 'graph2' : 'graph' %>
+  </div>
+  <div>
+    ※ グラフが表示されない場合
+    <ul>
+      <li>
+        <%= button_to 'グラフ表示', request.url, method: :get %>
+      </li>
+    </ul>
+  </div>
 </section>
