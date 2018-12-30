@@ -1,0 +1,4 @@
+日付,カテゴリー,目的,金額
+<% @accounts.each do |account| %>
+  <%= [account.date.to_s.gsub(/-/,'/'), account.category, account.purpose, account.money].join(',') %>
+<% end %>

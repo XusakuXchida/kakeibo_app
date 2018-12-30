@@ -34,6 +34,11 @@ class HistoriesController < ApplicationController
   end
 
   def show
+    respond_to do |format|
+      format.html
+      format.csv
+    end
+
     @categories = Category.all
     begin
       @today = Date.today
